@@ -29,13 +29,23 @@ RUN pnpm install
 COPY --from=builder /app/out/full/ .
 RUN pnpm turbo run build --filter=express...
 
+# Remove node_module and src folders
+RUN rm -rf node_modules && pnpm recursive exec -- rm -rf ./node_modules ./src
+
+FROM node:alpine AS stripper
+WORKDIR /app
+
+COPY --from=installer /app .
+RUN yarn global add pnpm
+RUN pnpm install --prod
+
 FROM node:alpine AS runner
 WORKDIR /app
 
 # Don't run production as root
-RUN addgroup --system --gid 1001 expressjs
+RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 expressjs
 USER expressjs
-COPY --from=installer /app .
+COPY --from=stripper /app .
 
 CMD node apps/express/dist/index.js
