@@ -13,7 +13,8 @@
     "start": "turbo run start",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "turbo run test",
-    "clean": "turbo run clean"
+    "clean": "turbo run clean",
+    "update": "turbo run update"
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
@@ -23,6 +24,5 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
   "packageManager": "pnpm@7.5.2"
 }

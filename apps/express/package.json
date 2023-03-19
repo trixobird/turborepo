@@ -7,8 +7,9 @@
     "dev": "ts-node-dev src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "clean": "rm -rf dist",
-    "lint": "eslint **/*.ts"
+    "clean": "rm -rf dist node_modules .turbo",
+    "lint": "eslint **/*.ts",
+    "update": "pnpm update --latest && pnpm install"
   },
   "author": "",
   "license": "UNLICENCED",
@@ -17,12 +18,12 @@
     "logger": "workspace:*"
   },
   "devDependencies": {
-    "@types/express": "^4.17.15",
-    "@types/node": "latest",
-    "eslint": "latest",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.15.3",
+    "eslint": "^8.36.0",
     "eslint-config-custom": "workspace:*",
-    "ts-node-dev": "latest",
+    "ts-node-dev": "^2.0.0",
     "tsconfig": "workspace:*",
-    "typescript": "latest"
+    "typescript": "^5.0.2"
   }
 }

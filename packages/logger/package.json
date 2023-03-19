@@ -11,21 +11,22 @@
   ],
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf .turbo node_modules dist",
     "dev": "tsc -w",
-    "lint": "eslint **/*.ts"
+    "lint": "eslint **/*.ts",
+    "update": "pnpm update --latest && pnpm install"
   },
   "author": "",
   "license": "UNLICENCED",
   "dependencies": {
-    "pino": "^8.8.0"
+    "pino": "^8.11.0"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "eslint": "latest",
+    "@types/node": "^18.15.3",
+    "eslint": "^8.36.0",
     "eslint-config-custom": "workspace:*",
-    "ts-node-dev": "latest",
+    "ts-node-dev": "^2.0.0",
     "tsconfig": "workspace:*",
-    "typescript": "latest"
+    "typescript": "^5.0.2"
   }
 }
