@@ -1,11 +1,15 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["APP_SECRET"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
     "lint": {
+      "outputs": []
+    },
+    "lint:fix": {
       "outputs": []
     },
     "dev": {

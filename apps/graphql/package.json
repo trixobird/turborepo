@@ -1,0 +1,47 @@
+{
+  "name": "graphql",
+  "version": "1.0.0",
+  "description": "GraphQL Server",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development ts-node-dev --exit-child --respawn src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist node_modules .turbo",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "update": "pnpm update --latest && pnpm install",
+    "generate": "prisma generate"
+  },
+  "author": "",
+  "license": "UNLICENCED",
+  "devDependencies": {
+    "@prisma/client": "^4.12.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "9.0.1",
+    "@types/node": "18.15.11",
+    "cross-env": "7.0.3",
+    "eslint": "^8.37.0",
+    "eslint-config-custom": "workspace:*",
+    "prisma": "^4.12.0",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "2.0.0",
+    "tsconfig": "workspace:*",
+    "typescript": "5.0.3"
+  },
+  "dependencies": {
+    "@graphql-tools/schema": "9.0.17",
+    "@graphql-yoga/subscription": "3.1.0",
+    "@pothos/core": "^3.29.0",
+    "@pothos/plugin-prisma": "^3.47.1",
+    "@pothos/plugin-relay": "^3.39.0",
+    "@pothos/plugin-scope-auth": "^3.19.0",
+    "@pothos/plugin-simple-objects": "^3.6.7",
+    "bcryptjs": "^2.4.3",
+    "graphql": "16.6.0",
+    "graphql-scalars": "1.21.3",
+    "graphql-yoga": "3.8.0",
+    "jsonwebtoken": "^9.0.0",
+    "logger": "workspace:*"
+  }
+}
