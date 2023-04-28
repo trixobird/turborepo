@@ -112,3 +112,6 @@ fabric.properties
 
 # node
 **/dist/
+
+# Environment variables
+.env

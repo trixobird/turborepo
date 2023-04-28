@@ -48,4 +48,4 @@ RUN adduser --system --uid 1001 expressjs
 USER expressjs
 COPY --from=stripper /app .
 
-CMD node apps/express/dist/index.js
+CMD node --conditions=javascript apps/express/dist/index.js

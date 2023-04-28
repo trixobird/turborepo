@@ -5,5 +5,8 @@
     "rootDir": "./src"
   },
   "extends": "tsconfig/node.json",
-  "exclude": ["dist"]
+  "exclude": ["dist"],
+  "ts-node": {
+    "esm": true
+  }
 }

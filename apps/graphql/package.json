@@ -1,8 +1,10 @@
 {
   "name": "graphql",
   "version": "1.0.0",
+  "private": true,
   "description": "GraphQL Server",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=development ts-node-dev --exit-child --respawn src/index.ts",
     "build": "tsc",
