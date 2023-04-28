@@ -1,24 +1,17 @@
 import type { CodegenConfig } from '@graphql-codegen/cli'
-import { printSchema } from 'graphql';
-import schema from './index';
 
 const config: CodegenConfig = {
-  schema: printSchema(schema),
+  schema: 'http://localhost:4001/graphql',
+  watch: true,
+  emitLegacyCommonJSImports: false,
   generates: {
     './src/schema/generated/schema.graphql': {
       plugins: ['schema-ast'],
     },
-    '../chat-app/src/gql/generated/': {
-      documents: ['../chat-app/src/gql/*.graphql'],
-      preset: 'client',
-      config: {
-        withHooks: true,
-      }
-    }
   },
   config: {
     scalars: {
-      DateTime: 'Date',
+      Date: 'Date',
       UUID: 'string'
     }
   }

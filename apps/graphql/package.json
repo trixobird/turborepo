@@ -13,7 +13,7 @@
     "lint:fix": "eslint . --fix",
     "update": "pnpm update --latest && pnpm install",
     "generate": "prisma generate",
-    "codegen": "graphql-codegen --config src/schema/codegen.ts"
+    "codegen": "graphql-codegen-esm --config src/schema/codegen.ts"
   },
   "author": "",
   "license": "UNLICENCED",
