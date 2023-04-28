@@ -1,5 +1,5 @@
-import {authenticateUser} from './auth';
-import {YogaInitialContext} from "graphql-yoga";
+import {authenticateUser} from './auth.js';
+import {YogaInitialContext} from 'graphql-yoga';
 
 export type GraphQLContext = {
   currentUserId: null | string

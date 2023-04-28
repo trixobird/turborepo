@@ -7,9 +7,9 @@
   "scripts": {
     "dev": "nodemon src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
     "clean": "rm -rf dist node_modules .turbo",
     "lint": "eslint **/*.ts",
+    "lint:fix": "eslint . --fix",
     "update": "pnpm update --latest && pnpm install"
   },
   "author": "",

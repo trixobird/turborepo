@@ -1,7 +1,7 @@
-import {builder, prisma} from "../builder";
-import {VoteDto} from "../types";
-import {pubSub} from "../pubsub";
-import {Vote} from "../../.prisma";
+import {builder, prisma} from '../builder.js';
+import {VoteDto} from '../types.js';
+import {pubSub} from '../pubsub.js';
+import {Vote} from '../../.prisma';
 
 builder.queryFields(t => ({
   votes: t.prismaField({

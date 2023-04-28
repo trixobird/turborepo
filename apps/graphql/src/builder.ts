@@ -1,5 +1,5 @@
 import SchemaBuilder from '@pothos/core';
-import {PrismaClient} from "../.prisma";
+import {PrismaClient} from '../.prisma/index.js';
 import PrismaPlugin from '@pothos/plugin-prisma';
 // This is the default location for the generator, but this can be
 // customized as described above.
@@ -10,7 +10,7 @@ import SimpleObjectsPlugin from '@pothos/plugin-simple-objects';
 import {DateTimeResolver} from 'graphql-scalars';
 import ScopeAuthPlugin from '@pothos/plugin-scope-auth';
 import RelayPlugin from '@pothos/plugin-relay';
-import {GraphQLContext} from "./context";
+import {GraphQLContext} from './context.js';
 
 export const prisma = new PrismaClient({});
 

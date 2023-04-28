@@ -1,5 +1,5 @@
-import { Message, Post, Vote } from "../.prisma";
-import {createPubSub} from "@graphql-yoga/subscription";
+import { Message, Post, Vote } from '../.prisma';
+import {createPubSub} from '@graphql-yoga/subscription';
 
 export type PubSubChannels = {
   newPost: [{ newPost: Post }]

@@ -1,8 +1,11 @@
-import {builder, prisma} from "../builder";
-import {compare, hash} from "bcryptjs";
-import {sign} from "jsonwebtoken";
-import {SignUpDto} from "../types";
-import {APP_SECRET} from "../config/config";
+import {builder, prisma} from '../builder.js';
+import bcryptjs from 'bcryptjs';
+import jsonwebtoken from 'jsonwebtoken';
+import {SignUpDto} from '../types.js';
+import {APP_SECRET} from '../config/config.js';
+
+const { sign } = jsonwebtoken;
+const { compare, hash } = bcryptjs;
 
 builder.queryFields(t => ({
   me: t.withAuth({authenticated: true}).prismaField({

@@ -1,7 +1,7 @@
-import {builder, prisma} from "../builder";
-import {PostDto} from "../types";
-import { Post } from "../../.prisma";
-import {pubSub} from "../pubsub";
+import {builder, prisma} from '../builder.js';
+import {PostDto} from '../types.js';
+import { Post } from '../../.prisma';
+import {pubSub} from '../pubsub.js';
 
 builder.queryFields((t) => ({
   post: t.prismaField({

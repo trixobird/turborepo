@@ -1,8 +1,8 @@
-import {builder, prisma} from "../builder";
-import {pubSub} from "../pubsub";
-import {MessageDto} from "../types";
-import {Message} from "../../.prisma";
-import {filter, map, pipe, Repeater} from "@graphql-yoga/subscription";
+import {builder, prisma} from '../builder.js';
+import {pubSub} from '../pubsub.js';
+import {MessageDto} from '../types.js';
+import {Message} from '../../.prisma';
+import {filter, map, pipe, Repeater} from '@graphql-yoga/subscription';
 
 builder.queryFields((t) => ({
   messages: t.prismaField({

@@ -16,8 +16,8 @@
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf .turbo node_modules dist",
-    "dev": "tsc -w",
-    "lint": "eslint **/*.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "update": "pnpm update --latest && pnpm install"
   },
   "author": "",
@@ -29,7 +29,6 @@
     "@types/node": "^18.15.3",
     "eslint": "^8.36.0",
     "eslint-config-custom": "workspace:*",
-    "ts-node-dev": "^2.0.0",
     "tsconfig": "workspace:*",
     "typescript": "^5.0.2"
   }

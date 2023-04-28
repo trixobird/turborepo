@@ -1,10 +1,10 @@
-import {builder} from "../builder";
-import './postOperations';
-import './userOperations';
-import './voteOperations';
-import './commentOperations';
-import './messageOperations';
-import '../types';
+import {builder} from '../builder.js';
+import './postOperations.js';
+import './userOperations.js';
+import './voteOperations.js';
+import './commentOperations.js';
+import './messageOperations.js';
+import '../types.js';
 
 builder.queryType({
   fields: (t) => ({})

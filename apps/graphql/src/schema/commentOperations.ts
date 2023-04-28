@@ -1,5 +1,5 @@
-import {builder, prisma} from "../builder";
-import {CommentDto} from "../types";
+import {builder, prisma} from '../builder.js';
+import {CommentDto} from '../types.js';
 
 builder.mutationField(
   'createComment', t => t.withAuth({authenticated: true}).field({

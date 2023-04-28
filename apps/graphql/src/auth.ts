@@ -1,5 +1,5 @@
 import {JwtPayload, verify} from 'jsonwebtoken';
-import {APP_SECRET} from "./config/config";
+import {APP_SECRET} from './config/config.js';
 
 export const authenticateUser = async (
   request: Request

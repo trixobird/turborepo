@@ -1,6 +1,4 @@
 {
-  "watch": ["src"],
-  "ext": "ts,json",
-  "ignore": ["src/**/*.spec.ts"],
-  "exec": "ts-node ./src/index.ts"
+  "watch": ["src", "../../packages/logger/src"],
+  "ext": "ts,json"
 }

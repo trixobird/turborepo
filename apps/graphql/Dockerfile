@@ -45,6 +45,7 @@ RUN pnpm install --prod
 
 FROM node:alpine AS runner
 WORKDIR /app
+ENV DATABASE_URL="postgresql://postgres:postgre@host.docker.internal:5432/yoga-tutorial?schema=public&connection_limit=5"
 
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs
@@ -52,4 +53,4 @@ RUN adduser --system --uid 1001 graphqljs
 USER graphqljs
 COPY --from=stripper /app .
 
-CMD node apps/graphql/dist/index.js
+CMD node --conditions=javascript apps/graphql/dist/index.js
