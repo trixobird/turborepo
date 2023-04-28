@@ -48,4 +48,4 @@ RUN adduser --system --uid 1001 ecma
 USER ecma
 COPY --from=stripper /app .
 
-CMD node apps/ecma/dist/bar.js
+CMD node --conditions=javascript apps/ecma/dist/bar.js

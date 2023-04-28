@@ -10,16 +10,8 @@
     "dist/**"
   ],
   "exports": {
-    ".": {
-      "import": {
-        "types": "./src/index.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./types/commonjs/index.d.cts",
-        "default": "./commonjs/index.cjs"
-      }
-    }
+    "javascript": "./dist/index.js",
+    "default": "./src/index.ts"
   },
   "scripts": {
     "build": "tsc",
