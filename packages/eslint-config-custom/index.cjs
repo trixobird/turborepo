@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('@typescript-eslint/utils').TSESLint.Linter.Config} */
+const eslintrcConfig = {
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   ignorePatterns: ["dist/**/*"],
   parser: '@typescript-eslint/parser',
@@ -7,3 +8,5 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "off",
   },
 };
+
+module.exports = eslintrcConfig;
