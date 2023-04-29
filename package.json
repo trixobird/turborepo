@@ -2,6 +2,7 @@
   "name": "turborepo",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -16,6 +17,7 @@
     "update": "turbo run update"
   },
   "devDependencies": {
+    "@types/prettier": "^2.7.2",
     "eslint-config-custom": "workspace:*",
     "prettier": "latest",
     "turbo": "latest"
