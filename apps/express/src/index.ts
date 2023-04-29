@@ -1,7 +1,6 @@
 import express from 'express';
 import { Express, Request, Response } from 'express';
-import { logger } from "logger";
-
+import { logger } from 'logger';
 
 const app: Express = express();
 

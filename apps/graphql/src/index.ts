@@ -5,7 +5,7 @@ import schema from './schema/index.js';
 import { logger } from 'logger';
 
 function index() {
-  const yoga = createYoga({ schema , context: createContext });
+  const yoga = createYoga({ schema, context: createContext });
   const server = createServer(yoga);
   const port = 4001;
   server.listen(port, () => {

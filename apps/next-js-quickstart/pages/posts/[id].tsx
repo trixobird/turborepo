@@ -1,11 +1,11 @@
 import Layout from '../../components/layout';
-import { getAllPostIds, getPostData, PostDataWHtml } from "@/lib/posts";
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { getAllPostIds, getPostData, PostDataWHtml } from '@/lib/posts';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 
-export const getStaticPaths: GetStaticPaths<{id: string}> = async () => {
+export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
   const paths = getAllPostIds();
   return {
     paths,
