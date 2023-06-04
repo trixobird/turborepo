@@ -1,4 +1,4 @@
-import {builder} from '../builder.js';
+import { builder } from '../builder.js';
 import './postOperations.js';
 import './userOperations.js';
 import './voteOperations.js';
@@ -7,19 +7,19 @@ import './messageOperations.js';
 import '../types.js';
 
 builder.queryType({
-  fields: (t) => ({})
+  fields: (_t) => ({}),
 });
 
 builder.mutationType({
-  fields: (t) => ({})
+  fields: (_t) => ({}),
 });
 
 builder.subscriptionType({
-  fields: (t) => ({})
+  fields: (_t) => ({}),
 });
 
 builder.queryFields((t) => ({
-  info: t.string({resolve: () => `This is the API of a Hackernews Clone`}),
+  info: t.string({ resolve: () => `This is the API of a Hackernews Clone` }),
 }));
 
 export default builder.toSchema();

@@ -1,38 +1,38 @@
 import SchemaBuilder from '@pothos/core';
-import {PrismaClient} from '../.prisma/index.js';
+import { PrismaClient } from '../.prisma/index.js';
 import PrismaPlugin from '@pothos/plugin-prisma';
 // This is the default location for the generator, but this can be
 // customized as described above.
 // Using a type only import will help avoid issues with undeclared
 // exports in esm mode
-import type PrismaTypes from '@pothos/plugin-prisma/generated';
+import type PrismaTypes from '@pothos/plugin-prisma/generated.js';
 import SimpleObjectsPlugin from '@pothos/plugin-simple-objects';
-import {DateTimeResolver} from 'graphql-scalars';
+import { DateTimeResolver } from 'graphql-scalars';
 import ScopeAuthPlugin from '@pothos/plugin-scope-auth';
 import RelayPlugin from '@pothos/plugin-relay';
-import {GraphQLContext} from './context.js';
+import { GraphQLContext } from './context.js';
 
 export const prisma = new PrismaClient({});
 
 interface AuthenticatedContext extends GraphQLContext {
-  currentUserId: NonNullable<GraphQLContext['currentUserId']>
+  currentUserId: NonNullable<GraphQLContext['currentUserId']>;
 }
 
 export const builder = new SchemaBuilder<{
-  Context: GraphQLContext,
+  Context: GraphQLContext;
   Scalars: {
     Date: {
       Input: Date;
       Output: Date;
     };
-  },
-  PrismaTypes: PrismaTypes,
+  };
+  PrismaTypes: PrismaTypes;
   AuthScopes: {
     authenticated: boolean;
-  },
+  };
   AuthContexts: {
-    authenticated: AuthenticatedContext
-  }
+    authenticated: AuthenticatedContext;
+  };
 }>({
   plugins: [ScopeAuthPlugin, PrismaPlugin, RelayPlugin, SimpleObjectsPlugin],
   prisma: {
