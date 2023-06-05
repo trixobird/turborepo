@@ -1,5 +1,5 @@
 locals {
-  users          = ["giorgos"]
+  users          = []
   developers     = []
   administrators = []
 }
