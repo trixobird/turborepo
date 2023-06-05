@@ -1,7 +1,7 @@
 locals {
   users          = ["giorgos"]
-  developers     = ["giorgos"]
-  administrators = ["giorgos"]
+  developers     = []
+  administrators = []
 }
 
 data "aws_caller_identity" "current" {}
