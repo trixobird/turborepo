@@ -1,5 +1,5 @@
 locals {
-  developers = ["giorgos", "eleni"]
+  developers = ["giorgos"]
 }
 
 data "aws_caller_identity" "current" {}
@@ -75,7 +75,7 @@ resource "aws_iam_role" "developer_role" {
         Effect    = "Allow"
         Sid       = ""
         Principal = {
-          Service = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
+          AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
         }
         Condition = {
           Bool = {
