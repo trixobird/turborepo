@@ -162,4 +162,5 @@ resource "aws_iam_user_group_membership" "administrators_membership" {
   groups = [
     aws_iam_group.administrators_group.name,
   ]
+  depends_on = [aws_iam_user.users]
 }
