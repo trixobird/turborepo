@@ -120,6 +120,7 @@ resource "aws_iam_user_group_membership" "developers_membership" {
   groups = [
     aws_iam_group.developers_group.name,
   ]
+  depends_on = [aws_iam_user.users]
 }
 
 resource "aws_iam_role" "administrator_role" {
