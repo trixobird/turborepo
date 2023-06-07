@@ -1,7 +1,7 @@
 locals {
-  users          = ["giorgos", "eleni"]
-  developers     = ["giorgos", "eleni"]
-  administrators = ["giorgos", "eleni"]
+  users          = ["giorgos"]
+  developers     = ["giorgos"]
+  administrators = ["giorgos"]
 }
 
 data "aws_caller_identity" "current" {}
@@ -120,6 +120,7 @@ resource "aws_iam_user_group_membership" "developers_membership" {
   groups = [
     aws_iam_group.developers_group.name,
   ]
+  depends_on = [aws_iam_user.users]
 }
 
 resource "aws_iam_role" "administrator_role" {
@@ -162,4 +163,5 @@ resource "aws_iam_user_group_membership" "administrators_membership" {
   groups = [
     aws_iam_group.administrators_group.name,
   ]
+  depends_on = [aws_iam_user.users]
 }
