@@ -36,5 +36,5 @@ provider "aws" {
 }
 
 module "iam" {
-  source = "./iam"
+  source = "../../modules/iam"
 }
