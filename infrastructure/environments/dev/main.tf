@@ -1,7 +1,7 @@
 variable "default_tags" {
   default = {
 
-    Environment = "Production"
+    Environment = "Development"
     ManagedBy   = "terraform"
     Project     = "learn-tfc-aws"
 
@@ -14,7 +14,7 @@ terraform {
   cloud {
     organization = "happyharbor"
     workspaces {
-      name = "learn-tfc-aws-prod"
+      name = "learn-tfc-aws-dev"
     }
   }
 
@@ -35,11 +35,21 @@ provider "aws" {
   }
 }
 
-module "iam" {
-  source = "../../modules/iam"
+data "tfe_outputs" "prod" {
+  organization = "happyharbor"
+  workspace = "learn-tfc-aws-prod"
+}
+
+resource "random_id" "developers" {
+  keepers = {
+    bar = data.tfe_outputs.prod.values.developers
+  }
+
+  byte_length = 8
 }
 
 module "s3" {
+  for_each = random_id.developers
   source = "../../modules/s3"
-  environment = var.environment
+  environment = "${var.environment}-${each.key}"
 }

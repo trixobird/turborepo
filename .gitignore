@@ -117,4 +117,4 @@ fabric.properties
 .env
 
 # Terraform
-infrastructure/.terraform/*
+infrastructure/**/.terraform/**
