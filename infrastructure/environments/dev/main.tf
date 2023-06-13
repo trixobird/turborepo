@@ -35,21 +35,13 @@ provider "aws" {
   }
 }
 
-data "tfe_outputs" "prod" {
+data "tfe_outputs" "prod_outputs" {
   organization = "happyharbor"
   workspace = "learn-tfc-aws-prod"
 }
 
-resource "random_id" "developers" {
-  keepers = {
-    bar = data.tfe_outputs.prod.values.developers
-  }
-
-  byte_length = 8
-}
-
 module "s3" {
-  for_each = random_id.developers
+  for_each = toset(data.tfe_outputs.prod_outputs.nonsensitive_values.developers)
   source = "../../modules/s3"
   environment = "${var.environment}-${each.key}"
 }
