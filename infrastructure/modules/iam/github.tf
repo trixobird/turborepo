@@ -15,7 +15,7 @@ data "aws_iam_policy_document" "github_assume_role_policy" {
 
     principals {
       type        = "Federated"
-      identifiers = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/token.actions.githubusercontent.com"]
+      identifiers = [aws_iam_openid_connect_provider.github_openid_connect_provider.arn]
     }
     condition {
       test     = "StringEquals"
@@ -23,8 +23,8 @@ data "aws_iam_policy_document" "github_assume_role_policy" {
       variable = "token.actions.githubusercontent.com:aud"
     }
     condition {
-      test     = "StringEquals"
-      values   = ["repo:trixobird/turborepo::refs/heads/main"]
+      test     = "StringLike"
+      values   = ["repo:trixobird/turborepo:*"]
       variable = "token.actions.githubusercontent.com:sub"
     }
   }
@@ -38,9 +38,4 @@ resource "aws_iam_openid_connect_provider" "github_openid_connect_provider" {
   ]
 
   thumbprint_list = ["6938fd4d98bab03faadb97b34396831e3780aea1"]
-}
-
-resource "aws_iam_role_policy_attachment" "github_openid_role_policy_attachment" {
-  role       = aws_iam_role.github_role.name
-  policy_arn = aws_iam_openid_connect_provider.github_openid_connect_provider.arn
 }
