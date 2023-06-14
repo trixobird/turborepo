@@ -1,0 +1,17 @@
+name: Deploy prod
+
+on:
+  push:
+    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
+
+jobs:
+
+  deploy_server:
+    uses: ./.github/build-graphql.yml
+    secrets:
+      aws_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+    with:
+      aws_region: ${{ env.AWS_REGION }}
+      environment: prod

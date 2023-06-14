@@ -2,6 +2,6 @@ variable "environment" {
   type = string
 }
 
-resource "aws_s3_bucket" "example" {
+resource "aws_s3_bucket" "to_be_destroyed_bucket" {
   bucket = "${var.environment}-some-forsaken-bucket"
 }
