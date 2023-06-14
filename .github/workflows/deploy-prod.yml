@@ -9,7 +9,7 @@ on:
 jobs:
 
   deploy_server:
-    uses: ./.github/build-graphql.yml
+    uses: ./.github/workflows/build-graphql.yml
     secrets:
       aws_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
     with:
