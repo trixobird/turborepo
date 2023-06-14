@@ -113,6 +113,11 @@ resource "aws_iam_group" "developers_group" {
   name = "developers"
 }
 
+resource "aws_iam_group_policy_attachment" "developers_assume_policy_attach" {
+  group      = aws_iam_group.developers_group.name
+  policy_arn = aws_iam_policy.developer_assume_policy.arn
+}
+
 resource "aws_iam_user_group_membership" "developers_membership" {
   for_each = toset(local.developers)
   user     = each.key
@@ -154,6 +159,11 @@ resource "aws_iam_policy" "administrator_assume_policy" {
 
 resource "aws_iam_group" "administrators_group" {
   name = "administrators"
+}
+
+resource "aws_iam_group_policy_attachment" "administrator_assume_policy_attach" {
+  group      = aws_iam_group.administrators_group.name
+  policy_arn = aws_iam_policy.administrator_assume_policy.arn
 }
 
 resource "aws_iam_user_group_membership" "administrators_membership" {
