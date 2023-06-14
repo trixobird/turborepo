@@ -37,6 +37,7 @@ provider "aws" {
 
 module "iam" {
   source = "../../modules/iam"
+    environment = var.environment
 }
 
 module "s3" {
