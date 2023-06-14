@@ -15,5 +15,5 @@ jobs:
     secrets:
       aws_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
     with:
-      aws_region: $AWS_REGION
+      aws_region: ${{ vars.AWS_REGION }}
       environment: prod
