@@ -1,4 +1,4 @@
-name: Build graphql
+name: Build service
 
 on:
   workflow_call:
@@ -7,6 +7,9 @@ on:
         required: true
         type: string
       environment:
+        required: true
+        type: string
+      service_name:
         required: true
         type: string
     secrets:
@@ -54,9 +57,9 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ steps.login-ecr.outputs.registry }}/${{ inputs.environment }}-graphql:${{ github.sha }}
+          tags: ${{ steps.login-ecr.outputs.registry }}/${{ inputs.environment }}-${{ inputs.service_name }}:${{ github.sha }}
           context: .
-          file: ./apps/graphql/Dockerfile
+          file: ./apps/${{ inputs.service_name }}/Dockerfile
           platforms: linux/arm64
-          cache-from: type=registry,ref=ghcr.io/trixobird/graphql:${{ inputs.environment }}-buildcache
-          cache-to: type=registry,ref=ghcr.io/trixobird/graphql:${{ inputs.environment }}-buildcache,mode=max
+          cache-from: type=registry,ref=${{ steps.login-ecr.outputs.registry }}/${{ inputs.environment }}-${{ inputs.service_name }}:cache
+          cache-to: type=registry,ref=${{ steps.login-ecr.outputs.registry }}/${{ inputs.environment }}-${{ inputs.service_name }}:cache,mode=max

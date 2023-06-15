@@ -8,12 +8,13 @@ on:
 
 jobs:
 
-  deploy_server:
+  deploy_graphql:
     permissions:
       id-token: write
-    uses: ./.github/workflows/build-graphql.yml
+    uses: ./.github/workflows/build-service.yml
     secrets:
       aws_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
     with:
       aws_region: ${{ vars.AWS_REGION }}
       environment: prod
+      service_name: graphql
