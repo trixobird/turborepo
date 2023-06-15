@@ -11,6 +11,8 @@ jobs:
   deploy_graphql:
     permissions:
       id-token: write
+      contents: read
+      packages: write
     uses: ./.github/workflows/build-service.yml
     secrets:
       aws_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
