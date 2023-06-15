@@ -61,5 +61,5 @@ jobs:
           context: .
           file: ./apps/${{ inputs.service_name }}/Dockerfile
           platforms: linux/arm64
-          cache-from: type=registry,ref=${{ steps.login-ecr.outputs.registry }}/${{ inputs.environment }}-${{ inputs.service_name }}:cache
-          cache-to: type=registry,ref=${{ steps.login-ecr.outputs.registry }}/${{ inputs.environment }}-${{ inputs.service_name }}:cache,mode=max
+          cache-from: type=registry,ref=ghcr.io/trixobird/${{ inputs.environment }}-${{ inputs.service_name }}:cache
+          cache-to: type=registry,ref=ghcr.io/trixobird/${{ inputs.environment }}-${{ inputs.service_name }}:cache,mode=max
